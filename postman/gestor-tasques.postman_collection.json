@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "4e591a4c-42d7-4e16-a98d-89ecb59cc913",
     "name": "Gestor de tasques",
-    "description": "Proves CRUD de l'API del gestor de tasques. Els exemples de resposta són dades de mostra per documentar el resultat esperat.",
+    "description": "Proves CRUD de l?API del gestor de tasques. Els exemples de resposta s?han capturat en proves reals amb MongoDB.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -77,7 +77,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n  \"_id\": \"6734a1f2c9e7b3d1a0f4e812\",\n  \"title\": \"Dissenyar una pàgina web\",\n  \"description\": \"Crear una pàgina web responsiva\",\n  \"cost\": 500,\n  \"hours_estimated\": 20,\n  \"image\": \"https://example.com/images/task1.jpg\",\n  \"completed\": false,\n  \"finished_at\": null,\n  \"createdAt\": \"2026-11-25T17:00:00.000Z\",\n  \"__v\": 0\n}"
+          "body": "{\n  \"title\": \"Exemple capturat a MongoDB\",\n  \"description\": \"Resposta real de la prova CRUD\",\n  \"cost\": 125,\n  \"hours_estimated\": 8,\n  \"image\": \"https://example.com/task.jpg\",\n  \"completed\": false,\n  \"finished_at\": null,\n  \"_id\": \"6b071e80912ae272a8511e0a\",\n  \"createdAt\": \"2026-11-25T17:44:32.839Z\",\n  \"__v\": 0\n}"
         }
       ]
     },
@@ -199,7 +199,7 @@
             }
           ],
           "cookie": [],
-          "body": "[\n  {\n    \"_id\": \"6734a1f2c9e7b3d1a0f4e812\",\n    \"title\": \"Dissenyar una pàgina web\",\n    \"description\": \"Crear una pàgina web responsiva\",\n    \"cost\": 500,\n    \"hours_estimated\": 20,\n    \"image\": \"https://example.com/images/task1.jpg\",\n    \"completed\": false,\n    \"finished_at\": null,\n    \"createdAt\": \"2026-11-25T17:00:00.000Z\",\n    \"__v\": 0\n  }\n]"
+          "body": "[\n  {\n    \"_id\": \"6b071e80912ae272a8511e0a\",\n    \"title\": \"Exemple capturat a MongoDB\",\n    \"description\": \"Resposta real de la prova CRUD\",\n    \"cost\": 125,\n    \"hours_estimated\": 8,\n    \"image\": \"https://example.com/task.jpg\",\n    \"completed\": false,\n    \"finished_at\": null,\n    \"createdAt\": \"2026-11-25T17:44:32.839Z\",\n    \"__v\": 0\n  }\n]"
         }
       ]
     },
@@ -248,7 +248,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n  \"_id\": \"6734a1f2c9e7b3d1a0f4e812\",\n  \"title\": \"Dissenyar una pàgina web\",\n  \"description\": \"Crear una pàgina web responsiva\",\n  \"cost\": 500,\n  \"hours_estimated\": 20,\n  \"image\": \"https://example.com/images/task1.jpg\",\n  \"completed\": false,\n  \"finished_at\": null,\n  \"createdAt\": \"2026-11-25T17:00:00.000Z\",\n  \"__v\": 0\n}"
+          "body": "{\n  \"_id\": \"6b071e80912ae272a8511e0a\",\n  \"title\": \"Exemple capturat a MongoDB\",\n  \"description\": \"Resposta real de la prova CRUD\",\n  \"cost\": 125,\n  \"hours_estimated\": 8,\n  \"image\": \"https://example.com/task.jpg\",\n  \"completed\": false,\n  \"finished_at\": null,\n  \"createdAt\": \"2026-11-25T17:44:32.839Z\",\n  \"__v\": 0\n}"
         }
       ]
     },
@@ -374,7 +374,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n  \"_id\": \"6734a1f2c9e7b3d1a0f4e812\",\n  \"title\": \"Dissenyar una pàgina web\",\n  \"description\": \"Crear una pàgina web responsiva\",\n  \"cost\": 500,\n  \"hours_estimated\": 20,\n  \"hours_real\": 15,\n  \"image\": \"https://example.com/images/updated_task.jpg\",\n  \"completed\": true,\n  \"finished_at\": \"2026-11-25T18:00:00.000Z\",\n  \"createdAt\": \"2026-11-25T17:00:00.000Z\",\n  \"__v\": 0\n}"
+          "body": "{\n  \"_id\": \"6b071e80912ae272a8511e0a\",\n  \"title\": \"Exemple capturat a MongoDB\",\n  \"description\": \"Resposta real de la prova CRUD\",\n  \"cost\": 125,\n  \"hours_estimated\": 8,\n  \"image\": \"https://example.com/updated_task.jpg\",\n  \"completed\": true,\n  \"finished_at\": \"2026-11-25T17:44:32.882Z\",\n  \"createdAt\": \"2026-11-25T17:44:32.839Z\",\n  \"__v\": 0,\n  \"hours_real\": 7\n}"
         }
       ]
     },
@@ -423,7 +423,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n  \"message\": \"Tasca eliminada correctament\",\n  \"task\": {\n    \"_id\": \"6734a1f2c9e7b3d1a0f4e812\",\n    \"title\": \"Dissenyar una pàgina web\",\n    \"description\": \"Crear una pàgina web responsiva\",\n    \"cost\": 500,\n    \"hours_estimated\": 20,\n    \"hours_real\": 15,\n    \"image\": \"https://example.com/images/updated_task.jpg\",\n    \"completed\": true,\n    \"finished_at\": \"2026-11-25T18:00:00.000Z\",\n    \"createdAt\": \"2026-11-25T17:00:00.000Z\",\n    \"__v\": 0\n  }\n}"
+          "body": "{\n  \"message\": \"Tasca eliminada correctament\",\n  \"task\": {\n    \"_id\": \"6b071e80912ae272a8511e0a\",\n    \"title\": \"Exemple capturat a MongoDB\",\n    \"description\": \"Resposta real de la prova CRUD\",\n    \"cost\": 125,\n    \"hours_estimated\": 8,\n    \"image\": \"https://example.com/updated_task.jpg\",\n    \"completed\": true,\n    \"finished_at\": \"2026-11-25T17:44:32.882Z\",\n    \"createdAt\": \"2026-11-25T17:44:32.839Z\",\n    \"__v\": 0,\n    \"hours_real\": 7\n  }\n}"
         }
       ]
     }
