@@ -10,6 +10,11 @@ const campsModificables = [
   'completed'
 ];
 
+function completedEsValid(dades) {
+  return !Object.prototype.hasOwnProperty.call(dades, 'completed')
+    || typeof dades.completed === 'boolean';
+}
+
 function respondreError(res, error, missatge) {
   const codi = error.name === 'ValidationError' || error.name === 'CastError'
     ? 400
@@ -24,6 +29,13 @@ function respondreError(res, error, missatge) {
 // Crea una tasca nova i assigna la data de finalització si ja està completada.
 exports.createTask = (req, res) => {
   const dades = req.body || {};
+  if (!completedEsValid(dades)) {
+    return res.status(400).json({
+      error: 'No s’ha pogut crear la tasca',
+      details: 'El camp completed ha de ser booleà'
+    });
+  }
+
   const task = new Task({
     title: dades.title,
     description: dades.description,
@@ -66,6 +78,13 @@ exports.getTaskById = (req, res) => {
 // Actualitza només els camps permesos i manté sincronitzada la data de finalització.
 exports.updateTask = (req, res) => {
   const dades = req.body || {};
+  if (!completedEsValid(dades)) {
+    return res.status(400).json({
+      error: 'Error actualitzant la tasca',
+      details: 'El camp completed ha de ser booleà'
+    });
+  }
+
   const actualitzacio = {};
 
   campsModificables.forEach((camp) => {
