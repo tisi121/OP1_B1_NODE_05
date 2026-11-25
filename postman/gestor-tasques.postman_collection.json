@@ -1,0 +1,445 @@
+{
+  "info": {
+    "_postman_id": "4e591a4c-42d7-4e16-a98d-89ecb59cc913",
+    "name": "Gestor de tasques",
+    "description": "Proves CRUD de l'API del gestor de tasques. Els exemples de resposta són dades de mostra per documentar el resultat esperat.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Crear una tasca correcta",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Dissenyar una pàgina web\",\n  \"description\": \"Crear una pàgina web responsiva\",\n  \"cost\": 500,\n  \"hours_estimated\": 20,\n  \"image\": \"https://example.com/images/task1.jpg\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/tasks",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Tasca creada (201)",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Dissenyar una pàgina web\",\n  \"description\": \"Crear una pàgina web responsiva\",\n  \"cost\": 500,\n  \"hours_estimated\": 20,\n  \"image\": \"https://example.com/images/task1.jpg\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tasks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tasks"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"_id\": \"6734a1f2c9e7b3d1a0f4e812\",\n  \"title\": \"Dissenyar una pàgina web\",\n  \"description\": \"Crear una pàgina web responsiva\",\n  \"cost\": 500,\n  \"hours_estimated\": 20,\n  \"image\": \"https://example.com/images/task1.jpg\",\n  \"completed\": false,\n  \"finished_at\": null,\n  \"createdAt\": \"2026-11-25T17:00:00.000Z\",\n  \"__v\": 0\n}"
+        }
+      ]
+    },
+    {
+      "name": "2. Crear una tasca sense títol (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cost\": 500,\n  \"hours_estimated\": 20\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/tasks",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Dades invàlides (400)",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cost\": 500,\n  \"hours_estimated\": 20\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tasks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tasks"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"error\": \"No s’ha pogut crear la tasca\",\n  \"details\": \"Task validation failed: title: El títol és obligatori\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "3. Obtenir totes les tasques",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/tasks",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Llista de tasques (200)",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tasks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tasks"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n  {\n    \"_id\": \"6734a1f2c9e7b3d1a0f4e812\",\n    \"title\": \"Dissenyar una pàgina web\",\n    \"description\": \"Crear una pàgina web responsiva\",\n    \"cost\": 500,\n    \"hours_estimated\": 20,\n    \"image\": \"https://example.com/images/task1.jpg\",\n    \"completed\": false,\n    \"finished_at\": null,\n    \"createdAt\": \"2026-11-25T17:00:00.000Z\",\n    \"__v\": 0\n  }\n]"
+        }
+      ]
+    },
+    {
+      "name": "4. Obtenir una tasca pel seu ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/tasks/{{taskId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "tasks",
+            "{{taskId}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Tasca trobada (200)",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tasks/{{taskId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                "{{taskId}}"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"_id\": \"6734a1f2c9e7b3d1a0f4e812\",\n  \"title\": \"Dissenyar una pàgina web\",\n  \"description\": \"Crear una pàgina web responsiva\",\n  \"cost\": 500,\n  \"hours_estimated\": 20,\n  \"image\": \"https://example.com/images/task1.jpg\",\n  \"completed\": false,\n  \"finished_at\": null,\n  \"createdAt\": \"2026-11-25T17:00:00.000Z\",\n  \"__v\": 0\n}"
+        }
+      ]
+    },
+    {
+      "name": "5. Obtenir una tasca inexistent (404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/tasks/{{missingTaskId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "tasks",
+            "{{missingTaskId}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Tasca no trobada (404)",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tasks/{{missingTaskId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                "{{missingTaskId}}"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"message\": \"Tasca no trobada\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "6. Marcar una tasca com a completada",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"completed\": true,\n  \"hours_real\": 15,\n  \"image\": \"https://example.com/images/updated_task.jpg\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/tasks/{{taskId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "tasks",
+            "{{taskId}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Tasca completada (200)",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"completed\": true,\n  \"hours_real\": 15,\n  \"image\": \"https://example.com/images/updated_task.jpg\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tasks/{{taskId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                "{{taskId}}"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"_id\": \"6734a1f2c9e7b3d1a0f4e812\",\n  \"title\": \"Dissenyar una pàgina web\",\n  \"description\": \"Crear una pàgina web responsiva\",\n  \"cost\": 500,\n  \"hours_estimated\": 20,\n  \"hours_real\": 15,\n  \"image\": \"https://example.com/images/updated_task.jpg\",\n  \"completed\": true,\n  \"finished_at\": \"2026-11-25T18:00:00.000Z\",\n  \"createdAt\": \"2026-11-25T17:00:00.000Z\",\n  \"__v\": 0\n}"
+        }
+      ]
+    },
+    {
+      "name": "7. Eliminar una tasca",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/tasks/{{taskId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "tasks",
+            "{{taskId}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Tasca eliminada (200)",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tasks/{{taskId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                "{{taskId}}"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"message\": \"Tasca eliminada correctament\",\n  \"task\": {\n    \"_id\": \"6734a1f2c9e7b3d1a0f4e812\",\n    \"title\": \"Dissenyar una pàgina web\",\n    \"description\": \"Crear una pàgina web responsiva\",\n    \"cost\": 500,\n    \"hours_estimated\": 20,\n    \"hours_real\": 15,\n    \"image\": \"https://example.com/images/updated_task.jpg\",\n    \"completed\": true,\n    \"finished_at\": \"2026-11-25T18:00:00.000Z\",\n    \"createdAt\": \"2026-11-25T17:00:00.000Z\",\n    \"__v\": 0\n  }\n}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "taskId",
+      "value": "6734a1f2c9e7b3d1a0f4e812"
+    },
+    {
+      "key": "missingTaskId",
+      "value": "000000000000000000000000"
+    }
+  ]
+}
